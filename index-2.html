@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Object with jQuery.reel.js</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="path/to/jquery.reel.js"></script>
+  <style>
+    #myObject {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="myObject"></div>
+
+  <script>
+    $(document).ready(function() {
+      $("#myObject").reel({
+        image: "path/to/frames.jpg", // Path to the image file containing the frames
+        frames: 36, // Number of frames in the animation
+        frame: 1, // Initial frame to display
+        speed: 0.5, // Animation speed (0.5 is half the default speed)
+      });
+    });
+  </script>
+</body>
+</html>

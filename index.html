@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+margin: 3em;
+padding: 0;
+font-family: sans-serif;
+font-size: 18px;
+line-height: 1.5;
+}
+
+h1 {
+line-height: 1.25;
+margin: 2em 0 0;
+}
+p {
+margin: .5em 0;
+}
+
+#switcher {
+list-style: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+#switcher li {
+float: left;
+width: 30px;
+height: 30px;
+margin: 0 15px 15px 0;
+border-radius: 30px;
+border: 3px solid black;
+}
+
+#grayButton {
+background: gray;
+cursor: pointer;
+}
+#whiteButton {
+background: blue;
+cursor: pointer;
+}
+#redButton{
+background: red;
+cursor: pointer;
+}
+  </style>
+</head>
+  <body>
+    <ul id="switcher">
+      <li id="grayButton"></li>
+      <li id="whiteButton"></li>
+      <li id="redButton"></li>
+    </ul>
+    
+    
+    <p>Try clicking on one of the colors above to change the colors on this page!</p>
+    <div id="modal-color" style="padding: 1em; max-width: fit-content;">
+    <img id="image" src="images/mini.jpg" width="400" height="400" />
+    </div>
+
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src='jquery.reel.js' type='text/javascript'></script>
+    <script>
+      $('#image').reel({
+        images:      'images/###.jpg',
+        frames:      20,
+        frame:       14,
+        rows:        6,
+        row:         3,
+        speed:       0,
+        annotations: {
+          "first_row": {
+            node: { text: '', css: { width: 100 } },
+            start: 1,
+            end: 20,
+            x: [ 10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105 ],
+            y: 10
+          },
+          "last_row": {
+            node: { text: '', css: { width: 100 } },
+            start: 101,
+            end: 120,
+            x: [ 105,100,95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10 ],
+            y: 175
+          }
+        }
+      });
+      // color switcher
+      document.getElementById('grayButton').onclick = switchGray;
+document.getElementById('whiteButton').onclick = switchWhite;
+document.getElementById('redButton').onclick = switchRed;
+
+function switchGray() {
+  document.getElementById('modal-color').style.backgroundColor = 'gray';
+  document.getElementById('modal-color').style.color = 'blue';
+}
+
+function switchWhite() {
+  document.getElementById('modal-color').style.backgroundColor = 'blue';
+  document.getElementById('modal-color').style.color = 'black';
+}
+
+function switchRed(){
+  document.getElementById('modal-color').style.backgroundColor = 'red';
+  document.getElementById('modal-color').style.color = 'blue';
+}
+
+    
+    </script>
+
+  </body>                  
+</html>
+
